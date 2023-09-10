@@ -6,5 +6,5 @@ layout: default
 title: Home
 ---
 
-Index of all things!
+Hello. I'm Tom, a CS student at WWU. This is my site for chronicling my work.
 

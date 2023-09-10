@@ -1,6 +1,6 @@
 body {
-   background-color: #003366;
-   color: white;
+   background-color: #002b36;
+   color: lightgreen;
    font-family: monospace;
    font-size: 12pt;
 }
@@ -11,7 +11,7 @@ body {
 }
 
 .box {
-   border: 2px solid white;
+   border: 2px solid lightgreen;
    margin: auto;
 }
 
@@ -22,7 +22,7 @@ body {
 }
 
 table td + td {
-   border-left: 2px solid white;
+   border-left: 2px solid lightgreen;
 }
 
 td {
@@ -44,14 +44,29 @@ td {
 }
 
 a {
-   color: lightgreen;
+   color: crimson;
 }
 
 .selected {
-   background-color: lightgreen;
-   color: #003366;
+   background-color: crimson;
+   color: #002b36;
+   font-weight: bold;
 }
 
 #post_title {
-   border-bottom: 2px white solid;
+   border-bottom: 2px lightgreen solid;
+   padding-bottom: 10px;
+}
+
+#tag_list_ul {
+   max-height: 50px;
+   min-height: 50px;
+   overflow: scroll;
+}
+
+#post_list_ul {
+   max-height: 80px;
+   min-height: 80px;
+   overflow: scroll;
+}
 

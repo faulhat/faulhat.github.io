@@ -4,7 +4,7 @@ layout: default
 
 Posts with tag "{{ page.tag }}"
 
-<ul>
+<ul id="post_list_ul">
    {% for post in site.tags[page.tag] %}
       <li>
          <a href="{{ post.url }}">

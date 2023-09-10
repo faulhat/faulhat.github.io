@@ -22,7 +22,7 @@
 
                <br><br>
                Tags
-               <ul>
+               <ul id="tag_list_ul">
                   {% for tag in site.tags %}
                      {% capture tag_name %}
                         {{ tag | first }}
@@ -48,7 +48,7 @@
                      {{ content }}
                {% else %}
                   All posts
-                  <ul>
+                  <ul id="post_list_ul">
                      {% for post in site.posts %}
                         <li>
                            {% if post.url == page.url %}
@@ -72,6 +72,7 @@
          <div id="postbox" class="box">
             <div id="post_title">
                <h3>{{ page.title }}</h3>
+               <i>{{ page.date | date: "%-d %B %Y" }}</i>
             </div>
 
             {{ content }}
