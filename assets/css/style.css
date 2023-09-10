@@ -70,3 +70,24 @@ a {
    overflow: scroll;
 }
 
+#univtitle {
+   float: left;
+}
+
+#arms {
+   float: right;
+   height: 100px;
+   margin-bottom: 10px;
+}
+
+.inline-img {
+   max-width: 50%;
+   max-height: 300px;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   display: block;
+   border: 1px lightgreen solid;
+}
+
