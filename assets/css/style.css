@@ -1,0 +1,57 @@
+body {
+   background-color: #003366;
+   color: white;
+   font-family: monospace;
+   font-size: 12pt;
+}
+
+#wrapper {
+   padding-left: 20px;
+   padding-right: 20px;
+}
+
+.box {
+   border: 2px solid white;
+   margin: auto;
+}
+
+#navbox {
+   margin-bottom: 15px;
+   overflow: hidden;
+   width: 100%;
+}
+
+table td + td {
+   border-left: 2px solid white;
+}
+
+td {
+   vertical-align: top;
+   text-align: left;
+   padding: 10px;
+}
+
+#tags {
+   width: 30%;
+}
+
+#post_list {
+   overflow: hidden;
+}
+
+#postbox {
+   padding: 10px;
+}
+
+a {
+   color: lightgreen;
+}
+
+.selected {
+   background-color: lightgreen;
+   color: #003366;
+}
+
+#post_title {
+   border-bottom: 2px white solid;
+

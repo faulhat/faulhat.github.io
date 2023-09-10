@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="/assets/css/style.css">
+   <title>{{ page.title }}</title>
+</head>
+
+<body>
+   <div id="wrapper">
+      <h1> Tom Faulhaber's Website </h1>
+      
+      <table id="navbox" class="box">
+         <tr>
+            <td id="tags">
+               {% if page.title == "Home" %}
+                  <a href="/" class="selected">Home</a>
+               {% else %}
+                  <a href="/">Home</a>
+               {% endif %}
+
+               <br><br>
+               Tags
+               <ul>
+                  {% for tag in site.tags %}
+                     {% capture tag_name %}
+                        {{ tag | first }}
+                     {% endcapture %}
+
+                     <li>
+                        {% if page.tag == tag[0] %}
+                           <a href="/tag/{{ tag | first | slugize }}" class="selected">
+                              {{ tag[0] | replace:'-', ' ' }}
+                           </a>
+                        {% else %}
+                           <a href="/tag/{{ tag | first | slugize }}">
+                              {{ tag[0] | replace:'-', ' ' }}
+                           </a>
+                        {% endif %}
+                     </li>
+                  {% endfor %}
+               </ul>
+            </td>
+
+            <td id="post_list">
+               {% if page.tag %}
+                     {{ content }}
+               {% else %}
+                  All posts
+                  <ul>
+                     {% for post in site.posts %}
+                        <li>
+                           {% if post.url == page.url %}
+                              <a href="{{ post.url }}" class="selected">
+                                 {{ post.title }}
+                              </a>
+                           {% else %}
+                              <a href="{{ post.url }}">
+                                 {{ post.title }}
+                              </a>
+                           {% endif %}
+                        </li>
+                     {% endfor %}
+                  </ul>
+               {% endif %}
+            </td>
+         </tr>
+      </table>
+
+      {% unless page.tag %}
+         <div id="postbox" class="box">
+            <div id="post_title">
+               <h3>{{ page.title }}</h3>
+            </div>
+
+            {{ content }}
+         </div>
+      {% endunless %}
+   </body>
+</html>
+
