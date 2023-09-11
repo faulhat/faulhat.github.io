@@ -12,17 +12,32 @@
    <div id="wrapper">
       <h1 id="univtitle"> Tom Faulhaber's Website </h1>
       <img src="/assets/images/arms.png" id="arms" />
-      
-      <table id="navbox" class="box">
+     
+      <table id="navbar" class="box">
          <tr>
-            <td id="tags">
-               {% if page.title == "Home" %}
+            <td class="navcell">
+               {% if page.url == "/" %}
                   <a href="/" class="selected">Home</a>
                {% else %}
                   <a href="/">Home</a>
                {% endif %}
+            </td>
 
-               <br><br>
+            <td class="navcell">
+               {% if page.url == "/about/" %}
+                  <a href="/about" class="selected">About</a>
+               {% else %}
+                  <a href="/about">About</a>
+               {% endif %}
+            </td>
+
+            <td class="filler"></td>
+         </tr>
+      </table>
+
+      <table id="navbox" class="box">
+         <tr>
+            <td id="tags">
                Tags
                <ul id="tag_list_ul">
                   {% for tag in site.tags %}
@@ -74,7 +89,12 @@
          <div id="postbox" class="box">
             <div id="post_title">
                <h3>{{ page.title }}</h3>
-               <i>{{ page.date | date: "%-d %B %Y" }}</i>
+               <i>
+                  Authored {{ page.date | date: "%-d %B %Y" }}
+                  {% if page.edited %}
+                     (last edited {{ page.edited | date: "%-d %B %Y" }})
+                  {% endif %}
+               </i>
             </div>
 
             {{ content }}

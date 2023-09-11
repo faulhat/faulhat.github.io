@@ -4,6 +4,8 @@
 
 layout: default
 title: Home
+permalink: /
+date: 2023-09-10
 ---
 
 Hello. I'm Tom, a CS student at WWU. This is my site for chronicling my work.
