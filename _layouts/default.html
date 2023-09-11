@@ -31,6 +31,14 @@
                {% endif %}
             </td>
 
+            <td class="navcell">
+               {% if page.url == "/projects/" %}
+                  <a href="/projects" class="selected">Projects</a>
+               {% else %}
+                  <a href="/projects">Projects</a>
+               {% endif %}
+            </td>
+
             <td class="filler"></td>
          </tr>
       </table>
