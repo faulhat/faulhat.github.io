@@ -13,10 +13,10 @@ body {
 .box {
    border: 2px solid lightgreen;
    margin: auto;
+   margin-bottom: 15px;
 }
 
 #navbar {
-   margin-bottom: 15px;
    overflow: hidden;
    width: 100%;
 }
@@ -27,7 +27,6 @@ body {
 }
 
 #navbox {
-   margin-bottom: 15px;
    overflow: hidden;
    width: 100%;
 }
@@ -100,5 +99,10 @@ a {
    margin-bottom: 5px;
    display: block;
    border: 1px lightgreen solid;
+}
+
+#foot {
+   text-align: center;
+   margin: auto;
 }
 

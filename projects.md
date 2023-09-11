@@ -9,7 +9,7 @@ date: 2023-09-11
 
 Riemann is a graphing program with some analysis capabilities. I'm still actively developing it. User-provided expressions are just-in-time compiled into real subroutines using the [asmjit](https://github.com/asmjit/asmjit/) library, so that they can be computed for many, many values of _x_ very quickly. The graphics are done using GTK.
 
-<img class="inline-img" src="/assets/images/riemann_screengrab.png" />
+<img class="inline-img" src="/assets/images/riemann.png" />
 
 My plans for the project going forward are to add support for graphing multiple functions at once, to add Monte Carlo area approximation, and to add automatic root finding/equation solving.
 
