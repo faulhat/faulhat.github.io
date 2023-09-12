@@ -14,3 +14,5 @@ See my [about page](/about/) for more info about me.
 
 See my [projects page](/projects/) for a list of my active and completed projects.
 
+See the [contact page](/contact/) for ways to get in touch with me.
+
