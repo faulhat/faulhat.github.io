@@ -19,9 +19,13 @@ View the source code here: [Github](https://github.com/faulhat/riemann)
 
 ### Project: _Bullet Heaven!_ (Complete)
 
-_Bullet Heaven!_ is a bullet hell game (get it? :P ) that I created for my IB CS class's end-of-year game jam in 12th grade. 
+_Bullet Heaven!_ is a bullet hell game (get it? :P ) that I created for my IB CS class's end-of-year game jam in 12th grade over the course of about ten days. 
 
 <img class="inline-img" src="/assets/images/bh_screengrab.png" />
+
+You can watch me play through the game here:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LAjp5RynJ2I?si=v1IJGZXf1CHi43Dm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="inline-frame"></iframe>
 
 View the source code here: [Github](https://github.com/faulhat/bulletheaven)
 
