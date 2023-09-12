@@ -3,6 +3,7 @@ body {
    color: lightgreen;
    font-family: monospace;
    font-size: 12pt;
+   line-height: 1.6;
 }
 
 #wrapper {
@@ -66,6 +67,7 @@ a {
 #post_title {
    border-bottom: 2px lightgreen solid;
    padding-bottom: 10px;
+   margin-bottom: 5px;
 }
 
 #tag_list_ul {
@@ -113,5 +115,10 @@ a {
    margin-bottom: 5px;
    display: block;
    border: 1px lightgreen solid;
+}
+
+.tag_link {
+   display: inline;
+   margin-right: 0.2em;
 }
 

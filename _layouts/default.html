@@ -104,13 +104,22 @@
       {% unless page.tag %}
          <div id="postbox" class="box">
             <div id="post_title">
-               <h3>{{ page.title }}</h3>
+               <b>{{ page.title }}</b><br>
                <i>
                   Authored {{ page.date | date: "%-d %B %Y" }}
                   {% if page.edited %}
                      (last edited {{ page.edited | date: "%-d %B %Y" }})
                   {% endif %}
-               </i>
+               </i><br>
+
+               {% if page.tags %}
+                  <i>
+                     Tags:
+                     {% for tag in page.tags %}
+                        <a href="/tag/{{ tag }}/" class="tag_link">{{ tag }}</a>
+                     {% endfor %}
+                  </i><br>
+               {% endif %}
             </div>
 
             {{ content }}

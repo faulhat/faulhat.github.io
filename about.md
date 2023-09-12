@@ -3,7 +3,6 @@ layout: default
 title: About Me
 date: 2023-09-10
 edited: 2023-09-11
-tags: meta
 permalink: /about/
 ---
 
