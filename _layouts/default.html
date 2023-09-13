@@ -55,7 +55,7 @@
          <tr>
             <td id="tags">
                Tags
-               <ul id="tag_list_ul">
+               <ul id="post_list_ul">
                   {% for tag in site.tags %}
                      {% capture tag_name %}
                         {{ tag | first }}
@@ -104,7 +104,7 @@
       {% unless page.tag %}
          <div id="postbox" class="box">
             <div id="post-title-area">
-               <h3 id="post-title">{{ page.title }}</h3><br>
+               <h3 id="post-title">{{ page.title }}</h3>
                <i>
                   Authored {{ page.date | date: "%-d %B %Y" }}
                   {% if page.edited %}

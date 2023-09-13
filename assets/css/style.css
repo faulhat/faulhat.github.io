@@ -2,7 +2,7 @@ body {
    background-color: #002b36;
    color: lightgreen;
    font-family: monospace;
-   font-size: 12pt;
+   font-size: 1.5vw;
    line-height: 1.6;
 }
 
@@ -70,19 +70,8 @@ a {
    margin-bottom: 5px;
 }
 
-#post-title {
-   margin-bottom: -15px;
-}
-
-#tag_list_ul {
-   max-height: 65px;
-   min-height: 65px;
-   overflow: scroll;
-}
-
 #post_list_ul {
-   max-height: 65px;
-   min-height: 65px;
+   height: 75px;
    overflow: scroll;
 }
 
@@ -137,5 +126,13 @@ pre > code {
    margin-left: 15px;
    margin-right: 15px;
    overflow-x: scroll;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+   font-size: 1.1rem;
 }
 
