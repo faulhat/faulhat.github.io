@@ -64,21 +64,25 @@ a {
    font-weight: bold;
 }
 
-#post_title {
+#post-title-area {
    border-bottom: 2px lightgreen solid;
    padding-bottom: 10px;
    margin-bottom: 5px;
 }
 
+#post-title {
+   margin-bottom: -15px;
+}
+
 #tag_list_ul {
-   max-height: 50px;
-   min-height: 50px;
+   max-height: 65px;
+   min-height: 65px;
    overflow: scroll;
 }
 
 #post_list_ul {
-   max-height: 80px;
-   min-height: 80px;
+   max-height: 65px;
+   min-height: 65px;
    overflow: scroll;
 }
 
@@ -120,5 +124,18 @@ a {
 .tag_link {
    display: inline;
    margin-right: 0.2em;
+}
+
+code {
+   background-color: #001030;
+   color: white;
+}
+
+pre > code {
+   display: block;
+   padding: 3px;
+   margin-left: 15px;
+   margin-right: 15px;
+   overflow-x: scroll;
 }
 

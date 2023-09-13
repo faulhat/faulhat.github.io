@@ -103,8 +103,8 @@
 
       {% unless page.tag %}
          <div id="postbox" class="box">
-            <div id="post_title">
-               <b>{{ page.title }}</b><br>
+            <div id="post-title-area">
+               <h3 id="post-title">{{ page.title }}</h3><br>
                <i>
                   Authored {{ page.date | date: "%-d %B %Y" }}
                   {% if page.edited %}
