@@ -112,12 +112,14 @@
          <div id="postbox" class="box">
             <div id="post-title-area">
                <h3 id="post-title">{{ page.title }}</h3>
-               <i>
-                  Authored {{ page.date | date: "%-d %B %Y" }}
-                  {% if page.edited %}
-                     (last edited {{ page.edited | date: "%-d %B %Y" }})
-                  {% endif %}
-               </i><br>
+               {% if page.date %}
+                  <i>
+                     Authored {{ page.date | date: "%-d %B %Y" }}
+                     {% if page.edited %}
+                        (last edited {{ page.edited | date: "%-d %B %Y" }})
+                     {% endif %}
+                  </i><br>
+               {% endif %}
 
                {% if page.tags %}
                   <i>
