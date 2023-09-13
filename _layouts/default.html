@@ -5,7 +5,12 @@
    <meta charset="utf-8">
    <link rel="stylesheet" href="/assets/css/style.css">
    <link rel="shortcut icon" type="image/png" href="/assets/images/arms.png">
-   <title>{{ page.title }}</title>
+   
+   {% if page.tag %}
+      <title>{{ page.tag }}</title>
+   {% else %}
+      <title>{{ page.title }}</title>
+   {% endif %}
 </head>
 
 <body>
@@ -56,7 +61,7 @@
       <table id="navbox" class="box">
          <tr>
             <td id="tags">
-               Tags
+               Tags ({{ site.tags | size }})
                <ul id="post_list_ul">
                   {% for tag in site.tags %}
                      {% capture tag_name %}
@@ -82,7 +87,7 @@
                {% if page.tag %}
                      {{ content }}
                {% else %}
-                  All posts
+                  All posts ({{ site.posts | size }})
                   <ul id="post_list_ul">
                      {% for post in site.posts %}
                         <li>

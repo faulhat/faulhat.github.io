@@ -2,7 +2,7 @@
 layout: default
 ---
 
-Posts with tag "{{ page.tag }}"
+Posts with tag "{{ page.tag }}" ({{ site.tags[page.tag] | size }})
 
 <ul id="post_list_ul">
    {% for post in site.tags[page.tag] %}
