@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <title>PSO Sim</title>
+    </head>
+
+    <body>
+        <h1>Particle Swarm Optimization Simulation</h1>
+        <div id="display">
+            <div class="container">
+              <h3 id="step"></h3><br>
+              <p id="target"></p>
+              <p id="best"></p>
+              <p id="cost"></p>
+              <p id="r2"></p><br>
+              <label for="n_data">Number of datapoints: </label>
+              <input name="n_data" id="n_data" type="number" min="10" max="500" step="10" value="50"><br>
+              <label for="n_particles">Number of particles:</label>
+              <input name="n_particles" id="n_particles" type="number" min="20" max="500" step="20" value="100"><br>
+              <label for="n_steps">Number of time steps:</label>
+              <input name="n_steps" id="n_steps" type="number" min="10" max="500" step="10" value="50"><br>
+              <button id="reset">Reset</button><br><br>
+            </div>
+            <div class="container">
+                <h3>Data (red) vs. current best model (blue):</h3>
+                <canvas id="graph"></canvas>
+            </div>
+            <div class="container">
+                <h3>Particles (the target is circled in red):</h3>
+                <canvas id="sim"></canvas>
+            </div>
+        </div>
+
+        <h2>How the program works:</h2>
+        <ol style="font-size: 16pt">
+            <li>A random 3rd degree polynomial is selected as the target.</li>
+            <li>
+                A dataset is created by evaluating the target polynomial for many random values of x,
+                and then adding random noise to each y value.
+            </li>
+            <li>
+                A random swarm of particles is initialized. Each particle is drawn to both its personal
+                best found position and the best found position of the entire swarm.
+            </li>
+            <li>
+                The graph on the left shows the swarm's best found position at each time step.
+            </li>
+        </ol>
+
+        <script type="text/javascript" src="js/script.js"></script>
+    </body>
+</html>

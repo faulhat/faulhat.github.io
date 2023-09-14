@@ -5,9 +5,9 @@ permalink: /projects/
 date: 2023-09-11
 ---
 
-#### Project: Riemann (Active)
+#### Project: riemann (Active)
 
-Riemann is a graphing program with some analysis capabilities. I'm still actively developing it. User-provided expressions are just-in-time compiled into real subroutines using the [asmjit](https://github.com/asmjit/asmjit/) library, so that they can be computed for many, many values of _x_ very quickly. The graphics are done using GTK.
+`riemann` is a graphing program with some analysis capabilities. I'm still actively developing it. User-provided expressions are just-in-time compiled into real subroutines using the [asmjit](https://github.com/asmjit/asmjit/) library, so that they can be computed for many, many values of `x` very quickly. The graphics are done using GTK.
 
 <img class="inline-img" src="/assets/images/riemann.png" />
 
@@ -31,9 +31,21 @@ View the source code here: [Github](https://github.com/faulhat/bulletheaven)
 
 <br>
 
+#### Project: particles (Complete)
+
+`particles` is a very simple visualization of the particle swarm optimization algorithm written in TypeScript. It picks a random cubic polynomial, adds some random noise to it, and then uses PSO to try to approximate it.
+
+<img class="inline-img" src="/assets/images/particles.png" />
+
+You can try the program out for yourself [here](/particles/).
+
+View the source code here: [Github](https://github.com/faulhat/particles)
+
+<br>
+
 #### Project: tomc (Abandoned)
 
-tomc was my attempt at a C compiler. I lost interest in it before building in any actual compilation functionality, but it can still make cool graphical representations of C programs.
+`tomc` was my attempt at a C compiler. I lost interest in it before building in any actual compilation functionality, but it can still make cool graphical representations of C programs.
 
 <img class="inline-img" src="/assets/images/tree.png" />
 
@@ -46,14 +58,4 @@ View the source code here: [Github](https://github.com/faulhat/tomc)
 This is just a collection of small assembly programs I wrote for fun. I plan to add to it whenever inspiration strikes.
 
 View the source code here: [Github](https://github.com/faulhat/asm-experiments)
-
-<br>
-
-#### Project: particles (Complete)
-
-particles is a very simple visualization of the particle swarm optimization algorithm written in TypeScript. It picks a random cubic polynomial, adds some random noise to it, and then uses PSO to try to approximate it.
-
-<img class="inline-img" src="/assets/images/particles.png" />
-
-View the source code here: [Github](https://github.com/faulhat/particles)
 
