@@ -7,11 +7,11 @@ date: 2023-09-11
 
 #### Project: riemann (Active)
 
-`riemann` is a graphing program with some analysis capabilities. I'm still actively developing it. User-provided expressions are just-in-time compiled into real subroutines using the [asmjit](https://github.com/asmjit/asmjit/) library, so that they can be computed for many, many values of `x` very quickly. The graphics are done using GTK.
+`riemann` is a Linux graphing calculator with some analysis capabilities. I'm still actively developing it. User-provided expressions are just-in-time compiled into real subroutines using the [asmjit](https://github.com/asmjit/asmjit/) library, so that they can be computed for many, many values of `x` very quickly. The graphics are done using GTK.
 
-<img class="inline-img" src="/assets/images/riemann.png" />
+<img class="inline-img" src="/assets/images/riemann_mc.png" />
 
-My plans for the project going forward are to add support for graphing multiple functions at once, to add Monte Carlo area approximation, and to add automatic root finding/equation solving.
+My plans for the project going forward are to add support for graphing multiple functions at once, to add symbolic derivation, and to add automatic root finding/equation solving.
 
 View the source code here: [Github](https://github.com/faulhat/riemann)
 
@@ -43,6 +43,14 @@ View the source code here: [Github](https://github.com/faulhat/particles)
 
 <br>
 
+#### Project: asm-experiments (Active?)
+
+This is just a collection of small assembly programs I wrote for fun. I plan to add to it whenever inspiration strikes.
+
+View the source code here: [Github](https://github.com/faulhat/asm-experiments)
+
+<br>
+
 #### Project: tomc (Abandoned)
 
 `tomc` was my attempt at a C compiler. I lost interest in it before building in any actual compilation functionality, but it can still make cool graphical representations of C programs.
@@ -51,11 +59,4 @@ View the source code here: [Github](https://github.com/faulhat/particles)
 
 View the source code here: [Github](https://github.com/faulhat/tomc)
 
-<br>
-
-#### Project: asm-experiments (Active?)
-
-This is just a collection of small assembly programs I wrote for fun. I plan to add to it whenever inspiration strikes.
-
-View the source code here: [Github](https://github.com/faulhat/asm-experiments)
 
