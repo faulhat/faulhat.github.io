@@ -1,0 +1,12 @@
+digraph {
+	user [label = "End user"]
+	request [label = "Request from user (image)"]
+	flask [label = "Web server (Flask)"]
+	user -> request -> flask;
+
+	response [label = "Response for user (evaluation)"]
+	flask -> response -> user;
+	
+	model [label = "Convolutional neural net"]
+	flask -> model -> flask;
+}	

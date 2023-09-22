@@ -1,0 +1,11 @@
+digraph {
+	input [label = "Input"];
+	convlayers [label = "Convolutional layers"];
+	input -> convlayers;
+
+	fingerprint [label = "Fingerprint layer"];
+	convlayers -> fingerprint;
+
+	classification [label = "Classification layer"]
+	fingerprint -> classification;
+}

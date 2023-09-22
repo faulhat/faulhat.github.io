@@ -31,6 +31,18 @@ View the source code here: [Github](https://github.com/faulhat/bulletheaven)
 
 <br>
 
+#### Project: author-id (Complete)
+
+`author-id` was my IA project (aka big whole-second-semester project) for IB CS. The premise of the project was that we had to make something for an actual client. My client was my AP Statistics teacher, Mr. Rice. The project is a tool to help him figure out, when a student turns in an assignment without writing their name, who the assignment belongs to (via handwriting classification).
+
+The full documentation, formatted according to IB standards, is available on this site [here](/author_id/IA-docs/cover_page.htm). This documentation includes a video demo of the tool.
+
+You can view the source code for the classification model here: [Github](https://github.com/faulhat/author-id-model)
+
+You can view the source code for the webapp here: [Github](https://github.com/faulhat/author-id-server)
+
+<br>
+
 #### Project: particles (Complete)
 
 `particles` is a very simple visualization of the particle swarm optimization algorithm written in TypeScript. It picks a random cubic polynomial, adds some random noise to it, and then uses PSO to try to approximate it.
@@ -58,5 +70,4 @@ View the source code here: [Github](https://github.com/faulhat/asm-experiments)
 <img class="inline-img" src="/assets/images/tree.png" />
 
 View the source code here: [Github](https://github.com/faulhat/tomc)
-
 

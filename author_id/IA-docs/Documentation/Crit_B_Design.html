@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>B. Design</title>
+    <link rel="stylesheet" href="crit_b_style.css">
+  </head>
+  <body>
+    <h1>Criterion B: Design</h1>
+    <h2>How does the AI work?</h2>
+    <h3>The algorithm</h3>
+    <p>
+      The AI, at its core, uses a convolutional neural network to generate "fingerprints" for each word on a page.<br>
+      One fingerprint is an array of a fixed, arbitrary number of floating-point numbers (a number we'll call <i>n</i>), which, in theory, represent various significant features of the handwriting.<br>
+      The mean of these fingerprints is then used as a fingerprint for the entire page.
+      Here is that algorithm as pseudocode:<br>
+
+      <a id="listing1"></a>
+      <pre class="code">
+// Listing 1
+
+// Where PAGE is an image and WORDS is an array of images:
+// (This part is handled by the handwritten-text-recognition-for-apache-mxnet tool, which is incorporated into the project as a git submodule)
+WORDS = getAllWords(PAGE)
+
+// Iterate over WORDS to create an array of fingerprints, one for each word:
+FINGERPRINTS = WORDS.map(getFingerprint)
+
+PAGE_FINGERPRINT = arithmeticMean(FINGERPRINTS)
+// PAGE_FINGERPRINT[k] is the mean of FINGERPRINT[k] for all FINGERPRINTS
+      </pre>
+      <br>
+      Now, PAGE_FINGERPRINT should ideally be closer to the PAGE_FINGERPRINT for any other page by the same author in <i>n-</i>dimensional space
+      than it is to any page by any other author.<br>
+
+      Therefore, to classify a sample:<br>
+
+      <a id="listing2"></a>
+      <pre class="code">
+// Listing 2
+
+// Where LABELLED_PAGES is an array of samples where the index of a given sample can be used as an ID for its author
+// And UNLABELLED_PAGE is a sample we want to classify, assuming it was written by the same author as one of the samples in LABELLED_PAGES
+UNLABELLED_PAGE_FINGERPRINT = getPageFingerprint(UNLABELLED_PAGE)
+
+// Find the LABELLED_PAGE whose fingerprint is closest to UNLABELLED_PAGE's in n-dimensional space
+BEST_GUESS_ID = 0
+BEST_GUESS_DISTANCE = euclideanDistance(getPageFingerprint(LABELLED_PAGES[0]), UNLABELLED_PAGE_FINGERPRINT)
+
+// Start from index 1 since we initialized BEST_GUESS_ID and BEST_GUESS_DISTANCE with values for LABELLED_PAGES[0]
+loop COUNTER from 1 to length(LABELLED_PAGES) - 1
+  LABELLED_PAGE = LABELLED_PAGES[COUNTER]
+  FINGERPRINT = getPageFingerprint(LABELLED_PAGE)
+  DISTANCE = euclideanDistance(FINGERPRINT, UNLABELLED_PAGE_FINGERPRINT)
+
+  // Check if this one is closer
+  if DISTANCE < BEST_GUESS_DISTANCE then
+    // New best
+    BEST_GUESS_ID = COUNTER
+    BEST_GUESS_DISTANCE = DISTANCE
+  end if
+end loop
+      </pre>
+      <br>
+      Now, BEST_GUESS_ID is the index of the page in LABELLED_PAGES which is the closest match for UNLABELLED_PAGE, and therefore the ID of its author.<br>
+
+      Note that the "page" in the above explanation can be any handwriting sample. It doesn't have to be a sheet of letter paper.<br>
+      However, smaller samples will lead to lower accuracy.
+    </p>
+
+    <h3>Why is this system necessary?</h3>
+
+    <p>
+      The easiest way to train a neural network of any kind is to feed it data of the format (DATA, LABEL), where DATA is a tensor of a fixed size and LABEL is a bounded discrete variable,<br>
+      and then teach it to predict LABEL given DATA. To use any training mechanism other than this is to swim upstream.<br>
+      
+      I wanted to find a way to train my network this way but still have a model, in the end, which can be applied generally to any set of authors.<br>
+      Therefore, I trained my network on <a href="https://www.kaggle.com/datasets/naderabdalghani/iam-handwritten-forms-dataset">a dataset I found online,</a> which contains
+      handwriting samples from a closed set of authors, each of which could easily be given a numerical ID.<br>
+      
+      This network had a structure like so:<br>
+      <img src="network.png"><br>
+
+      Where the classification layer produces an array of probabilities, one for each author, where element <i>k</i> is the probability that the input is a sample by author <i>k.</i><br>
+      Once it's been trained, the classification layer can simply be removed, exposing the fingerprint layer. <br>
+      The fingerprint layer is linearly related to the classification, but can be applied to any other set of authors,
+      though it will obviously be most accurate when applied to the set it was trained on.
+    </p>
+    
+    <h2>How does the web app work?</h2>
+    <h3>As a relay</h3>
+    <p>
+      The function of the web app is fairly straightforward. It takes full advantage of the model-view-controller architecture as used
+      in typical Flask applications. It essentially acts as a relay between the end user and the AI described above.<br>
+
+      Here is a diagram showing a simplified view of that process:<br>
+      <img src="webapp.png"><br>
+    </p>
+
+    <h3>But what do I mean by "evaluation?"</h3>
+    <p>
+      An "evaluation" and a "fingerprint" are not the same thing. An evaluation, in this case, is a classification on labelled samples
+      that the end user has already uploaded.<br>
+
+      Recall <a href="#listing2">Listing 2,</a> where we classified an unlabelled sample by comparing it to a set of labelled ones.<br>
+      However, in that pseudocode we found fingerprints for each image. We don't want to have to do this every time, since querying the neural net is computationally expensive.<br>
+
+      Therefore, the fingerprint for each labelled sample that a user uploads is stored alongside it in the database. Here's how that structure looks:<br>
+      <img src="database.png"><br>
+
+      Where each fingerprint is the <i>n-</i>length array of floats returned by the model serialized as JSON and each image is a filepath pointing to the image in the server's file system.<br>
+      All this means that the fingerprint for each labelled sample only needs to be calculated once.
+    </p>
+
+    <h2>Test Plan</h2>
+
+    <table>
+      <tr>
+        <th>What is being tested?</th>
+        <th>What is the test?</th>
+        <th>Criteria for passing</th>
+      </tr>
+      <tr>
+        <td>User creation/login/logout functionality</td>
+        <td>
+          Submit valid and invalid data to the creation, login, and logout forms in the web app.
+        </td>
+        <td>
+          Passed if the valid data produces no errors and updates the database correctly and the invalid data produces no errors and causes no change to the database.
+        </td>
+      </tr>
+      <tr>
+        <td>Labelled sample uploads</td>
+        <td>
+          Upload a labelled sample.
+        </td>
+        <td>
+          Passed if the file is added to the server's file system in the right place and a database entry is added including the filepath and the fingerprint calculated for the sample.
+        </td>
+      </tr>
+      <tr>
+        <td>Model accuracy</td>
+        <td>
+          For a given set of authors, upload a labelled sample for each author. Then request an evaluation for an unlabelled one by one of those authors.
+        </td>
+        <td>
+          The test is passed if the program correctly identifies the labelled sample by the same author as the unlabelled one as the one closest to it.
+        </td>
+      </tr>
+      <tr>
+        <td>Sample deletion</td>
+        <td>
+          Delete a previously uploaded labelled sample.
+        </td>
+        <td>
+          Passed if the corresponding file and database entry are removed.
+        </td>
+      </tr>
+    </table>
+
+    <p>
+      All of these tests except for the "Model accuracy" test are included in the test suite for the author-id-server project.
+    </p>
+  </body>
+</html>

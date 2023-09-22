@@ -1,0 +1,14 @@
+digraph {
+    user [label = "User model"]
+    samples [label = "List of user's labelled samples"]
+    samples -> user;
+
+    sampleModel [label = "Labelled sample model"]
+    sampleModel -> samples;
+
+    image [label = "Image for sample"]
+    image -> sampleModel;
+
+    fingerprint [label = "Fingerprint for sample"]
+    fingerprint -> sampleModel;
+}
