@@ -35,7 +35,11 @@ View the source code here: [Github](https://github.com/faulhat/bulletheaven)
 
 `author-id` was my IA project (aka big whole-second-semester project) for IB CS. The premise of the project was that we had to make something for an actual client. My client was my AP Statistics teacher, Mr. Rice. The project is a tool to help him figure out, when a student turns in an assignment without writing their name, who the assignment belongs to (via handwriting classification).
 
-The full documentation, formatted according to IB standards, is available on this site [here](/author_id/IA-docs/cover_page.htm). This documentation includes a video demo of the tool.
+The full documentation, formatted according to IB standards, is available on this site [here](/author_id/IA-docs/cover_page.htm).
+
+You can watch the demo video from the above documentation on Youtube here:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dci1jO2SLgo?si=IaobODhDvVjFvTft" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="inline-frame"></iframe>
 
 You can view the source code for the classification model here: [Github](https://github.com/faulhat/author-id-model)
 
