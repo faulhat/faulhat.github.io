@@ -75,3 +75,9 @@ View the source code here: [Github](https://github.com/faulhat/asm-experiments)
 
 View the source code here: [Github](https://github.com/faulhat/tomc)
 
+<br>
+
+#### Project: faulhat.github.io (Active)
+
+This site is continuously in development as I come up with new things to add to it, as well as small aesthetic changes from time to time.
+
