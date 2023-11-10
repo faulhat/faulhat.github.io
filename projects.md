@@ -71,6 +71,19 @@ View the source code here: [Github](https://github.com/faulhat/asm-experiments)
 
 `tomc` was my attempt at a C compiler. I lost interest in it before building in any actual compilation functionality, but it can still make cool graphical representations of C programs.
 
+The program
+```
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+    printf("Hello, world!");
+    return 0;
+}
+```
+
+is transformed into
+
 <img class="inline-img" src="/assets/images/tree.png" />
 
 View the source code here: [Github](https://github.com/faulhat/tomc)
