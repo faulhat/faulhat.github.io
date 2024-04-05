@@ -2,6 +2,8 @@
   --main-bg-color: #002b36;
   --main-fg-color: lightgreen;
   --link-color: crimson;
+  --code-bg-color: #000040;
+  --code-fg-color: white;
 }
 
 body {
@@ -72,6 +74,10 @@ a {
    color: var(--main-bg-color);
 }
 
+.selected > a {
+    color: var(--main-bg-color);
+}
+
 #post-title-area {
    border-bottom: 2px solid var(--main-fg-color);
    padding-bottom: 0.6vh;
@@ -133,8 +139,8 @@ a {
 }
 
 code {
-   background-color: #001030;
-   color: white;
+   background-color: var(--code-bg-color);
+   color: var(--code-fg-color);
 }
 
 pre > code {

@@ -1,0 +1,10 @@
+<td class="navcell">
+{% if page.url == include.url %}
+    <div class="navdiv selected">
+{% else %}
+    <div class="navdiv">
+{% endif %}
+        <a href={{ include.url }}>{{ include.name }}</a>
+    </div>
+</td>
+

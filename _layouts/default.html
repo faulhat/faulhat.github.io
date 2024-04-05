@@ -22,37 +22,13 @@
      
       <table id="navbar" class="box">
          <tr>
-            <td class="navcell">
-               {% if page.url == "/" %}
-                  <a href="/" class="selected">Home</a>
-               {% else %}
-                  <a href="/">Home</a>
-               {% endif %}
-            </td>
+            {% include nav.html url="/" name="Home" %}
 
-            <td class="navcell">
-               {% if page.url == "/about/" %}
-                  <a href="/about" class="selected">About</a>
-               {% else %}
-                  <a href="/about">About</a>
-               {% endif %}
-            </td>
+            {% include nav.html url="/about/" name="About" %}
 
-            <td class="navcell">
-               {% if page.url == "/projects/" %}
-                  <a href="/projects" class="selected">Projects</a>
-               {% else %}
-                  <a href="/projects">Projects</a>
-               {% endif %}
-            </td>
+            {% include nav.html url="/projects/" name="Projects" %}
 
-            <td class="navcell">
-               {% if page.url == "/contact/" %}
-                  <a href="/contact" class="selected">Contact</a>
-               {% else %}
-                  <a href="/contact">Contact</a>
-               {% endif %}
-            </td>
+            {% include nav.html url="/contact/" name="Contact" %}
 
             <td class="filler"></td>
          </tr>
