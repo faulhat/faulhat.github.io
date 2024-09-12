@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+{% assign sortedTags = site.tags | sort %}
+
 <html>
 <head>
    <meta charset="utf-8">
@@ -39,7 +41,7 @@
             <td id="tags">
                Tags ({{ site.tags | size }})
                <ul id="post_list_ul">
-                  {% for tag in site.tags %}
+                  {% for tag in sortedTags %}
                      {% capture tag_name %}
                         {{ tag | first }}
                      {% endcapture %}
