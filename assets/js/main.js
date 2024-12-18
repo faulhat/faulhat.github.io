@@ -17,11 +17,31 @@ const themes = {
       "vars": {
          "main-bg-color": "#000020",
          "main-fg-color": "#f67280",
-         "link-color": "#5efb6e",
+         "link-color": "#6b8e23",
          "code-bg-color": "black",
          "code-fg-color": "white"
       },
       "icon": "arms_sakura.png"
+   },
+   "vampiro": {
+      "vars": {
+         "main-bg-color": "#000020",
+         "main-fg-color": "#990012",
+         "link-color": "#009987",
+         "code-bg-color": "black",
+         "code-fg-color": "white"
+      },
+      "icon": "arms_vampiro.png"
+   },
+   "power": {
+      "vars": {
+         "main-bg-color": "#012456",
+         "main-fg-color": "#61d6d6",
+         "link-color": "#cccccc",
+         "code-bg-color": "black",
+         "code-fg-color": "white"
+      },
+      icon: "arms_power.png"
    }
 };
 
