@@ -1,6 +1,8 @@
 const root = document.querySelector(":root");
 const faviconLink = document.querySelector("link[rel*='icon']");
-const arms = document.getElementById("arms");
+
+const canvas = document.getElementById("armsCanvas");
+const ctx = canvas.getContext("2d");
 
 const themes = {
    "Coder": {
@@ -85,19 +87,35 @@ const themes = {
    }
 };
 
-function setIcon(imageName) {
-   var imageURL = "/assets/images/" + imageName;
-   faviconLink.href = imageURL;
-   arms.src = imageURL;
+function drawIcon(theme) {
+   const icon = new Image();
+   icon.src = "/assets/images/arms_stencil.png";
+
+   icon.addEventListener("load", (e) => {
+      const w = canvas.width,
+            h = canvas.height;
+
+      ctx.imageSmoothingEnabled = false;
+      ctx.fillStyle = theme.vars["link-color"];
+      ctx.fillRect(0, 0, w, h);
+
+      // New shapes will be drawn only where they overlap existing color
+      ctx.globalCompositeOperation = "destination-in";
+
+      ctx.drawImage(icon, 0, 0, w, h);
+
+      // Reset
+      ctx.globalCompositeOperation = "source-over";
+   });
 }
 
 function setColors(themeName) {
-   var theme = themes[themeName];
-   for (const [key, value] of Object.entries(theme["vars"])) {
+   const theme = themes[themeName];
+   for (const [key, value] of Object.entries(theme.vars)) {
       root.style.setProperty("--" + key, value);
    }
 
-   setIcon(theme["icon"]);
+   drawIcon(theme);
    localStorage.setItem("theme", themeName);
 }
 

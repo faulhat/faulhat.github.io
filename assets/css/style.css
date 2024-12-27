@@ -101,10 +101,11 @@ a {
    float: left;
 }
 
-#arms {
+#armsCanvas {
    float: right;
-   width: 13vw;
-   margin-bottom: 1vh;
+   width: 10vw;
+   height: 10vw;
+   margin-bottom: 1rem;
 }
 
 .inline-img {
