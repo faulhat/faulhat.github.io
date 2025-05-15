@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="shortcut icon" type="image/png" href="/assets/images/arms.png">
+
+{% if page.tag %}
+    <title>{{ page.tag }}</title>
+{% else %}
+    <title>{{ page.title }}</title>
+{% endif %}
+</head>
+
+<body>
+<div id="wrapper">
+    <label for="theme">Select theme:</label>
+
+    <select name="theme" id="themeSelector" onChange="setColors(this.value)"></select>
+
+    
+    <h2 id="univtitle"> Tom Faulhaber's Website </h2>
+    <a id="arms" href="/2023/09/10/coat-of-arms.html">
+        <canvas id="armsCanvas"></canvas>
+    </a>
+    
+    <table id="navbar" class="box">
+        <tr>
+        {% include nav.html url="/" name="Home" %}
+    
+        {% include nav.html url="/about/" name="About" %}
+    
+        {% include nav.html url="/projects/" name="Projects" %}
+    
+        {% include nav.html url="/contact/" name="Contact" %}
+    
+        <td class="filler"></td>
+        </tr>
+    </table>
+
+    {{ content }}
+
+    <div id="foot">
+        Site and theme (C) Tom Faulhaber, 2023.
+    </div>
+</div>      
+
+<script type="text/javascript" src="/assets/js/themeselect.js"></script>
+<script type="text/javascript" src="/assets/js/scrollintoview.js"></script>
+</body>
+</html>
+

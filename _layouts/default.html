@@ -1,130 +1,82 @@
-<!DOCTYPE html>
+---
+layout: base
+---
 
 {% assign sortedTags = site.tags | sort %}
 
-<html>
-<head>
-   <meta charset="utf-8">
-   <link rel="stylesheet" href="/assets/css/style.css">
-   <link rel="shortcut icon" type="image/png" href="/assets/images/arms.png">
-   
-   {% if page.tag %}
-      <title>{{ page.tag }}</title>
-   {% else %}
-      <title>{{ page.title }}</title>
-   {% endif %}
-</head>
+<table id="navbox" class="box">
+   <tr>
+      <td id="tags">
+         Tags ({{ site.tags | size }})
+         <ul id="post_list_ul">
+            {% for tag in sortedTags %}
+               {% capture tag_name %}
+                  {{ tag | first }}
+               {% endcapture %}
 
-<body>
-   <div id="wrapper">
-      <label for="theme">Select theme:</label>
-   
-      <select name="theme" id="themeSelector" onchange="setColors(this.value)"></select>
+               <li>
+                  {% if page.tag == tag[0] %}
+                     <a href="/tag/{{ tag | first | slugize }}" class="selected">
+                        {{ tag[0] | replace:'-', ' ' }}
+                     </a>
+                  {% else %}
+                     <a href="/tag/{{ tag | first | slugize }}">
+                        {{ tag[0] | replace:'-', ' ' }}
+                     </a>
+                  {% endif %}
+               </li>
+            {% endfor %}
+         </ul>
+      </td>
 
-      
-      <h2 id="univtitle"> Tom Faulhaber's Website </h2>
-      <a id="arms" href="/2023/09/10/coat-of-arms.html">
-         <canvas id="armsCanvas"></canvas>
-      </a>
-     
-      <table id="navbar" class="box">
-         <tr>
-            {% include nav.html url="/" name="Home" %}
-
-            {% include nav.html url="/about/" name="About" %}
-
-            {% include nav.html url="/projects/" name="Projects" %}
-
-            {% include nav.html url="/contact/" name="Contact" %}
-
-            <td class="filler"></td>
-         </tr>
-      </table>
-
-      <table id="navbox" class="box">
-         <tr>
-            <td id="tags">
-               Tags ({{ site.tags | size }})
-               <ul id="post_list_ul">
-                  {% for tag in sortedTags %}
-                     {% capture tag_name %}
-                        {{ tag | first }}
-                     {% endcapture %}
-
-                     <li>
-                        {% if page.tag == tag[0] %}
-                           <a href="/tag/{{ tag | first | slugize }}" class="selected">
-                              {{ tag[0] | replace:'-', ' ' }}
-                           </a>
-                        {% else %}
-                           <a href="/tag/{{ tag | first | slugize }}">
-                              {{ tag[0] | replace:'-', ' ' }}
-                           </a>
-                        {% endif %}
-                     </li>
-                  {% endfor %}
-               </ul>
-            </td>
-
-            <td id="post_list">
-               {% if page.tag %}
-                     {{ content }}
-               {% else %}
-                  All posts ({{ site.posts | size }})
-                  <ul id="post_list_ul">
-                     {% for post in site.posts %}
-                        <li>
-                           {% if post.url == page.url %}
-                              <a href="{{ post.url }}" class="selected">
-                                 {{ post.title }}
-                              </a>
-                           {% else %}
-                              <a href="{{ post.url }}">
-                                 {{ post.title }}
-                              </a>
-                           {% endif %}
-                        </li>
-                     {% endfor %}
-                  </ul>
-               {% endif %}
-            </td>
-         </tr>
-      </table>
-
-      {% unless page.tag %}
-         <div id="postbox" class="box">
-            <div id="post-title-area">
-               <h3 id="post-title">{{ page.title }}</h3>
-               {% if page.date %}
-                  <i>
-                     Authored {{ page.date | date: "%-d %B %Y" }}
-                     {% if page.edited %}
-                        (last edited {{ page.edited | date: "%-d %B %Y" }})
+      <td id="post_list">
+         {% if page.tag %}
+               {{ content }}
+         {% else %}
+            All posts ({{ site.posts | size }})
+            <ul id="post_list_ul">
+               {% for post in site.posts %}
+                  <li>
+                     {% if post.url == page.url %}
+                        <a href="{{ post.url }}" class="selected">
+                           {{ post.title }}
+                        </a>
+                     {% else %}
+                        <a href="{{ post.url }}">
+                           {{ post.title }}
+                        </a>
                      {% endif %}
-                  </i><br>
+                  </li>
+               {% endfor %}
+            </ul>
+         {% endif %}
+      </td>
+   </tr>
+</table>
+
+{% unless page.tag %}
+   <div id="postbox" class="box">
+      <div id="post-title-area">
+         <h3 id="post-title">{{ page.title }}</h3>
+         {% if page.date %}
+            <i>
+               Authored {{ page.date | date: "%-d %B %Y" }}
+               {% if page.edited %}
+                  (last edited {{ page.edited | date: "%-d %B %Y" }})
                {% endif %}
+            </i><br>
+         {% endif %}
 
-               {% if page.tags %}
-                  <i>
-                     Tags:
-                     {% for tag in page.tags %}
-                        <a href="/tag/{{ tag }}/" class="tag-link">{{ tag }}</a>
-                     {% endfor %}
-                  </i><br>
-               {% endif %}
-            </div>
-
-            {{ content }}
-         </div>
-      {% endunless %}
-
-      <div id="foot">
-         Site and theme (C) Tom Faulhaber, 2023.
+         {% if page.tags %}
+            <i>
+               Tags:
+               {% for tag in page.tags %}
+                  <a href="/tag/{{ tag }}/" class="tag-link">{{ tag }}</a>
+               {% endfor %}
+            </i><br>
+         {% endif %}
       </div>
-   </div>      
 
-   <script type="text/javascript" src="/assets/js/themeselect.js"></script>
-   <script type="text/javascript" src="/assets/js/scrollintoview.js"></script>
-</body>
-</html>
-
+      {{ content }}
+   </div>
+{% endunless %}

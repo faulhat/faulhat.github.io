@@ -152,3 +152,10 @@ pre > code {
    overflow-x: scroll;
 }
 
+#not-found {
+   text-align: center;
+}
+
+#colors {
+   padding: 0.5rem;
+}
