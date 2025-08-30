@@ -6,84 +6,67 @@ const ctx = canvas.getContext("2d");
 
 const themes = {
    "Coder": {
-      "vars": {
-         "main-bg-color": "#002b36",
-         "main-fg-color": "lightgreen",
-         "link-color": "crimson",
-         "code-bg-color": "#000040",
-         "code-fg-color": "white"
-      },
-      "icon": "arms.png"
+      "main-bg-color": "#002b36",
+      "main-fg-color": "lightgreen",
+      "link-color": "crimson",
+      "code-bg-color": "#000040",
+      "code-fg-color": "white"
    },
    "Sakura": {
-      "vars": {
-         "main-bg-color": "#000020",
-         "main-fg-color": "#f67280",
-         "link-color": "#6b8e23",
-         "code-bg-color": "black",
-         "code-fg-color": "white"
-      },
-      "icon": "arms_sakura.png"
+      "main-bg-color": "#000020",
+      "main-fg-color": "#f67280",
+      "link-color": "#6b8e23",
+      "code-bg-color": "black",
+      "code-fg-color": "white"
+   },
+   "Lazer": {
+      "main-bg-color": "#200000",
+      "main-fg-color": "#ff8080",
+      "link-color": "#00f0f0",
+      "code-bg-color": "#202020",
+      "code-fg-color": "white"
    },
    "Vampiro": {
-      "vars": {
-         "main-bg-color": "#000020",
-         "main-fg-color": "#990012",
-         "link-color": "#009987",
-         "code-bg-color": "black",
-         "code-fg-color": "white"
-      },
-      "icon": "arms_vampiro.png"
+      "main-bg-color": "#000020",
+      "main-fg-color": "#990012",
+      "link-color": "#009987",
+      "code-bg-color": "black",
+      "code-fg-color": "white"
    },
    "Power": {
-      "vars": {
-         "main-bg-color": "#012456",
-         "main-fg-color": "#61d6d6",
-         "link-color": "#cccccc",
-         "code-bg-color": "black",
-         "code-fg-color": "white"
-      },
-      icon: "arms_power.png"
+      "main-bg-color": "#012456",
+      "main-fg-color": "#61d6d6",
+      "link-color": "#cccccc",
+      "code-bg-color": "black",
+      "code-fg-color": "white"
    },
    "Kaffee": {
-        "vars": {
-            "main-bg-color": "#f5deb3",
-            "main-fg-color": "#8b4513",
-            "link-color": "#800000",
-            "code-bg-color": "black",
-            "code-fg-color": "white"
-        },
-        icon: "arms_kaffee.png"
+      "main-bg-color": "#f5deb3",
+      "main-fg-color": "#8b4513",
+      "link-color": "#800000",
+      "code-bg-color": "black",
+      "code-fg-color": "white"
    },
    "Seaglass": {
-        "vars": {
-            "main-bg-color": "#2f4f4f",
-            "main-fg-color": "#00fa9a",
-            "link-color": "#f08080",
-            "code-bg-color": "black",
-            "code-fg-color": "white"
-        },
-        icon: "arms_seaglass.png"
+      "main-bg-color": "#2f4f4f",
+      "main-fg-color": "#00fa9a",
+      "link-color": "#f08080",
+      "code-bg-color": "black",
+      "code-fg-color": "white"
    },
    "Neo": {
-        "vars": {
-            "main-bg-color": "black",
-            "main-fg-color": "cyan",
-            "link-color": "red",
-            "code-bg-color": "indigo",
-            "code-fg-color": "#ffdab9"
-        },
-        icon: "arms_neo.png"
+      "main-bg-color": "black",
+      "main-fg-color": "cyan",
+      "link-color": "red",
+      "code-bg-color": "indigo",
+      "code-fg-color": "#ffdab9"
    },
    "Mono": {
-        "vars": {
-            "main-bg-color": "black",
-            "main-fg-color": "#a9a9a9",
-            "link-color": "white",
-            "code-bg-color": "#d3d3d3",
-            "code-fg-color": "black"
-        },
-        icon: "arms_mono.png"
+      "main-bg-color": "black",
+      "main-fg-color": "#a9a9a9",
+      "link-color": "white",
+      "code-bg-color": "#d3d3d3",
+      "code-fg-color": "black"
    }
 };
 
@@ -96,7 +79,7 @@ function drawIcon(theme) {
             h = canvas.height;
 
       ctx.imageSmoothingEnabled = false;
-      ctx.fillStyle = theme.vars["link-color"];
+      ctx.fillStyle = theme["link-color"];
       ctx.fillRect(0, 0, w, h);
 
       // New shapes will be drawn only where they overlap existing color
@@ -111,7 +94,7 @@ function drawIcon(theme) {
 
 function setColors(themeName) {
    const theme = themes[themeName];
-   for (const [key, value] of Object.entries(theme.vars)) {
+   for (const [key, value] of Object.entries(theme)) {
       root.style.setProperty("--" + key, value);
    }
 
