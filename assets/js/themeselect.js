@@ -19,13 +19,6 @@ const themes = {
       "code-bg-color": "black",
       "code-fg-color": "white"
    },
-   "Lazer": {
-      "main-bg-color": "#200000",
-      "main-fg-color": "#ff8080",
-      "link-color": "#00f0f0",
-      "code-bg-color": "#202020",
-      "code-fg-color": "white"
-   },
    "Vampiro": {
       "main-bg-color": "#000020",
       "main-fg-color": "#990012",
